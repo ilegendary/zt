@@ -1,0 +1,37 @@
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            var sn = $("#sn").val();
+            $("#uplock").click(function () {
+
+                $.get("/home/lockcontrol", { "sn": sn, cmdType: "uplock" }, function (data){
+
+                });
+            });
+            $("#downlock").click(function () {
+
+                $.get("/home/lockcontrol", { "sn": sn, cmdType: "downlock" }, function (data) {
+
+                });
+            });
+        })
+    </script>
+</head>
+<body>
+    设备编号:&nbsp;&nbsp;<input type="text" value="ZZCWS0000002" id="sn" />
+    <input type="button" value="升锁" id="uplock" />
+    <input type="button" value="降锁" id="downlock" />
+</body>
+</html>
