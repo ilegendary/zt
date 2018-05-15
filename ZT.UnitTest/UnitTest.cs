@@ -12,7 +12,7 @@ namespace ZT.UnitTest
         public void   GetInfoTestAsync()
         {
             GroundLockTerminalBLL terminalBLL = new GroundLockTerminalBLL();
-            GroundLockTerminalInfo terminalInfo =  terminalBLL.GetTerminalInfo("ZZCWS0000002");
+            GroundLockTerminalInfo terminalInfo =  terminalBLL.GetTerminalStatus("ZZCWS0000002");
             Assert.Equal(1, terminalInfo.OnLine);
         }
 

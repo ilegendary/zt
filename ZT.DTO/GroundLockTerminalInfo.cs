@@ -19,6 +19,10 @@ namespace ZT.DTO
         /// </summary>
         public string SwVer { get; set; }
         /// <summary>
+        /// 状态
+        /// </summary>
+        public string Status { get; set; }
+        /// <summary>
         /// 是否在线
         /// </summary>
         public int OnLine { get; set; }

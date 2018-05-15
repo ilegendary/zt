@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ZT.Business;
+using ZT.DTO;
 using ZT.Model;
 
 namespace ZT.Application.Controllers
@@ -17,14 +18,25 @@ namespace ZT.Application.Controllers
         [HttpGet]
         public IActionResult LockControl(string sn, string cmdType)
         {
-            
+            GroundLockTerminalBLL terminalBLL = new GroundLockTerminalBLL();
+            if (cmdType == "uplock")
+            {
+                terminalBLL.UpLock(sn);
+            }
+
+            if (cmdType == "downlock")
+            {
+                terminalBLL.DownLock(sn);
+            }
+
             return Json("LockControl");
         }
 
         public IActionResult GetLockStatus(string sn)
         {
             GroundLockTerminalBLL terminalBLL = new GroundLockTerminalBLL();
-            return Json("");
+            GroundLockTerminalInfo terminalInfo = terminalBLL.GetTerminalStatus(sn);
+            return Json(terminalInfo.Status);
         }
     }
 }

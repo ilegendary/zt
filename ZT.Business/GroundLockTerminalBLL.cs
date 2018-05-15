@@ -23,7 +23,7 @@ namespace ZT.Business
         /// </summary>
         /// <param name="sn"></param>
         /// <returns></returns>
-        public GroundLockTerminalInfo GetTerminalInfo(string sn)
+        public GroundLockTerminalInfo GetTerminalStatus(string sn)
         {
             string requestUrl = apiDomain + "/device/info/" + sn;
             var client = new HttpClient();
