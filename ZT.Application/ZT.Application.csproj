@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ZT.Business\ZT.Business.csproj" />
+    <ProjectReference Include="..\ZT.Enum\ZT.Enum.csproj" />
     <ProjectReference Include="..\ZT.Model\ZT.Model.csproj" />
   </ItemGroup>
 

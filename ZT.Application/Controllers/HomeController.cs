@@ -11,6 +11,7 @@ namespace ZT.Application.Controllers
 {
     public class HomeController : Controller
     {
+        GroundLockTerminalBLL terminalBLL = new GroundLockTerminalBLL();
         public IActionResult Index()
         {
             return View();
@@ -31,6 +32,35 @@ namespace ZT.Application.Controllers
 
             return Json("LockControl");
         }
+
+        public IActionResult GetUpLockResult(string sn)
+        {
+            GroundLockTerminalInfo terminalInfo = terminalBLL.GetTerminalStatus(sn);
+
+            if (terminalInfo.Status == ((int)ZTEnum.GroudLockStatus.LockUp_NoBooking).ToString() || terminalInfo.Status == ((int)ZTEnum.GroudLockStatus.LockUp_Booking).ToString())
+            {
+                return Json("{\"success\":\"1\",\"msg\":\"操作成功\"}");
+            }
+            else
+            {
+                return Json("{\"success\":\"0\",\"msg\":\"正在执行\"}");
+            }
+        }
+
+        public IActionResult GetDownLockResult(string sn)
+        {
+            GroundLockTerminalInfo terminalInfo = terminalBLL.GetTerminalStatus(sn);
+
+            if (terminalInfo.Status == ((int)ZTEnum.GroudLockStatus.LockDown_Left).ToString() || terminalInfo.Status == ((int)ZTEnum.GroudLockStatus.LockDown_Wating).ToString())
+            {
+                return Json("{\"success\":\"1\",\"msg\":\"操作成功\"}");
+            }
+            else
+            {
+                return Json("{\"success\":\"0\",\"msg\":\"正在执行\"}");
+            }
+        }
+
 
         public IActionResult GetLockStatus(string sn)
         {

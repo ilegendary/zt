@@ -39,7 +39,7 @@ namespace ZT.Business
 
         public bool DownLock(string sn)
         {
-            string requestUrl = apiDomain + "/" + sn + "/cmd" + "/" + ZTEnum.CommandType.DownLock;
+            string requestUrl = apiDomain + "/device/" + sn + "/cmd" + "/" + (int)ZTEnum.CommandType.DownLock;
             var client = new HttpClient();
 
             //发送请求
@@ -49,7 +49,7 @@ namespace ZT.Business
 
         public bool UpLock(string sn)
         {
-            string requestUrl = apiDomain + "/" + sn + "/cmd" + "/" + ZTEnum.CommandType.UpLock;
+            string requestUrl = apiDomain + "/device/" + sn + "/cmd" + "/" + (int)ZTEnum.CommandType.UpLock;
             var client = new HttpClient();
 
             //发送请求
