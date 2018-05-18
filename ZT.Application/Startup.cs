@@ -51,12 +51,7 @@ namespace ZT.Application
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-
-
-                routes.MapRoute(
-                   name: "file",
-                   template: "lock/*");
+                    template: "{controller=Lock}/{action=Index}/{id?}");
             });
         }
     }

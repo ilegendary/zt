@@ -16,13 +16,13 @@
             
             $("#uplock").click(function () {
                 var sn = $("#sn").val();
-                $.get("/home/lockcontrol", { "sn": sn, cmdType: "uplock" }, function (data){
+                $.get("/lock/lockcontrol", { "id": sn, cmdType: "uplock" }, function (data){
 
                 });
             });
             $("#downlock").click(function () {
                 var sn = $("#sn").val();
-                $.get("/home/lockcontrol", { "sn": sn, cmdType: "downlock" }, function (data) {
+                $.get("/lock/lockcontrol", { "id": sn, cmdType: "downlock" }, function (data) {
 
                 });
             });
